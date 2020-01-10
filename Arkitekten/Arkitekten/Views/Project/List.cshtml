@@ -1,0 +1,20 @@
+﻿@model ProjectListViewModel
+
+
+<h1>Projekt</h1>
+
+@foreach (var project in Model.Projects)
+{
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <a asp-controller="Project" asp-action="Details" asp-route-id="@project.ProjectId">
+                <h2>@project.ProjectName</h2>
+                <p>@project.ProjectId</p>
+            </a>
+            <h5 class="pull-right">@project.TotalCost</h5>
+
+        </div>
+    </div>
+</div>
+}
