@@ -17,7 +17,6 @@ namespace Arkitekten.Models
         //Amount is set to string to be able to specify desired amount, e.g. 10kg or 10pcs
         public string Amount { get; set; }
         public DateTime OrderPlaced { get; set; }
-
-
+        public string Retailer { get; set; }
     }
 }

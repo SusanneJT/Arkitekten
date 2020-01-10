@@ -9,6 +9,7 @@ namespace Arkitekten.Models
     {
         public int ProjectId { get; set; }
         public string ProjectOwnerUserName { get; set; }
+        public string ProjectName { get; set; }  
         public List<OrderedProduct> OrderedProduct { get; set; }
         public decimal TotalCost { get; set; }
     }
