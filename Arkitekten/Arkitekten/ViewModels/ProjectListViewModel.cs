@@ -9,5 +9,6 @@ namespace Arkitekten.ViewModels
     public class ProjectListViewModel
     {
         public IEnumerable<Project> Projects { get; set; }
+        public string FormatedPrice { get; set; }
     }
 }

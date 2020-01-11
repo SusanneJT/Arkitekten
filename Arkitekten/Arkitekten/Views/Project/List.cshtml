@@ -1,20 +1,38 @@
 ﻿@model ProjectListViewModel
+@using Microsoft.AspNetCore.Identity
+@{
+    ViewData["Title"] = "Projekt";
+}
+
+@inject UserManager<IdentityUser> UserManager
+
+<h4>@UserManager.GetUserName(User):s aktuella projekt</h4>
 
 
-<h1>Projekt</h1>
+<section class="pricing py-5">
+    <div class="container">
+        <div class="row">
+            @foreach (var project in Model.Projects)
+            {
+                <div class="col-lg-4">
+                    <div class="card mb-5 mb-lg-0">
+                        <div class="card-body">
+                            <h3 class="card-title text-muted text-uppercase text-center">@project.ProjectName</h3>
+                            <hr>
+                            <h5 class="pull-right">Totalkostnad: @Convert.ToDecimal(@project.TotalCost).ToString("#,##0.00")kr </h5>
+                            <a class="btn btn-block btn-primary text-uppercase" asp-controller="Project" asp-action="Details" asp-route-id="@project.ProjectId">Hantera projekt </a>
+                        </div>
+                    </div>
+                </div>
+            }
 
-@foreach (var project in Model.Projects)
-{
-<div class="col-sm-4 col-lg-4 col-md-4">
-    <div class="thumbnail">
-        <div class="caption">
-            <a asp-controller="Project" asp-action="Details" asp-route-id="@project.ProjectId">
-                <h2>@project.ProjectName</h2>
-                <p>@project.ProjectId</p>
-            </a>
-            <h5 class="pull-right">@project.TotalCost</h5>
-
+            <div class="col-lg-4">
+                <div class="card mb-5 mb-lg-0">
+                    <div class="card-body">
+                        <a class="btn btn-block btn-primary text-uppercase" asp-controller="Project" asp-action="Details">Lägg till nytt projekt</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-}
+</section>
