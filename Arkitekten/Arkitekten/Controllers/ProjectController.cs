@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Arkitekten.Models;
 using Arkitekten.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Arkitekten.Controllers
 {
+    [Authorize]
     public class ProjectController : Controller
     {
         private readonly IProjectRepository _projectRepository;
@@ -26,7 +28,7 @@ namespace Arkitekten.Controllers
         {
             ProjectListViewModel projectListViewModel = new ProjectListViewModel
             {
-                Projects = _projectRepository.GetAllProjectsForThisOwner("Test")
+                Projects = _projectRepository.GetAllProjectsForThisOwner(User.Identity.Name)
             };
 
             //The created view is returned to the bread page (Bread.cshtml)
