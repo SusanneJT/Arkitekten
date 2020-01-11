@@ -26,7 +26,7 @@ namespace Arkitekten.Controllers
         {
             ProjectListViewModel projectListViewModel = new ProjectListViewModel
             {
-                Projects = _projectRepository.GetAllProjectsForThisOwner("Lasse")
+                Projects = _projectRepository.GetAllProjectsForThisOwner("Test")
             };
 
             //The created view is returned to the bread page (Bread.cshtml)
