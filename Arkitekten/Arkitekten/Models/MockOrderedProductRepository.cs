@@ -21,7 +21,7 @@ namespace Arkitekten.Models
             throw new NotImplementedException();
         }
 
-        public void CreateOrderedProduct(OrderedProduct orderedProduct)
+        public void CreateOrderedProduct(OrderedProduct orderedProduct, int projectId)
         {
             throw new NotImplementedException();
         }

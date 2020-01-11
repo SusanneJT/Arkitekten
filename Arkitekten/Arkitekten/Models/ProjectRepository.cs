@@ -37,5 +37,18 @@ namespace Arkitekten.Models
         {
             return _appDbContext.Projects.Include(o => o.OrderedProduct).FirstOrDefault(p => p.ProjectId == projectId);
         }
+
+        public void UpdateTotalCost(int projectId)
+        {
+            decimal totalCost = 0;
+            var allOrders = _appDbContext.OrderedProducts.Where(p => p.ProjectId == projectId);
+            foreach (var order in allOrders)
+            {
+                totalCost = totalCost += order.Price;
+            }
+
+            _appDbContext.Projects.First(p => p.ProjectId == projectId).TotalCost = totalCost;
+            _appDbContext.SaveChanges();
+        }
     }
 }

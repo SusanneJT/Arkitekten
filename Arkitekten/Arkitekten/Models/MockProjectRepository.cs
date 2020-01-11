@@ -16,7 +16,7 @@ namespace Arkitekten.Models
                 new Project {ProjectId = 3, ProjectOwnerUserName = "Lasse", TotalCost = 19500, ProjectName = "Von Gyllenstiernas badrum"}
             };
 
-        public void CreateProject(Project project)
+        public void CreateProject()
         {
             throw new NotImplementedException();
         }
@@ -42,5 +42,9 @@ namespace Arkitekten.Models
             return totalcost;
         }
 
+        public void UpdateTotalCost(int projectId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

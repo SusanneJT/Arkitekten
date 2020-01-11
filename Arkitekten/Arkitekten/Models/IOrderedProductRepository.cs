@@ -7,7 +7,7 @@ namespace Arkitekten.Models
 {
     public interface IOrderedProductRepository
     {
-        void CreateOrderedProduct(OrderedProduct orderedProduct);
+        void CreateOrderedProduct(OrderedProduct orderedProduct, int projectId);
         void ChangeOrderedProduct(OrderedProduct orderedProduct);
         public IEnumerable<OrderedProduct> GetOrderedProductsById(int projectId);
 
