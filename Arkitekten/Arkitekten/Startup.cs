@@ -30,8 +30,8 @@ namespace Arkitekten
 
             //services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<AppDbContext>();
 
-            services.AddScoped<IProjectRepository, MockProjectRepository>();
-            services.AddScoped<IOrderedProductRepository, MockOrderedProductRepository>();
+            services.AddScoped<IProjectRepository, ProjectRepository>();
+            services.AddScoped<IOrderedProductRepository, OrderedProductRepository>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
