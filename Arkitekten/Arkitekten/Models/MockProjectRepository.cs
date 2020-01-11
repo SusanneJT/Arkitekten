@@ -16,6 +16,16 @@ namespace Arkitekten.Models
                 new Project {ProjectId = 3, ProjectOwnerUserName = "Lasse", TotalCost = 19500, ProjectName = "Von Gyllenstiernas badrum"}
             };
 
+        public void CreateProject(Project project)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int CreateProject(Project project, string username)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Project> GetAllProjectsForThisOwner(string projectOwnerUserName)
         {
             return Projects.Where(p => p.ProjectOwnerUserName == projectOwnerUserName);
