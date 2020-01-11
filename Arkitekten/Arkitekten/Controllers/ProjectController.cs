@@ -6,6 +6,7 @@ using Arkitekten.Models;
 using Arkitekten.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -34,7 +35,7 @@ namespace Arkitekten.Controllers
             //The created view is returned to the bread page (Bread.cshtml)
             return View(projectListViewModel);
         }
-        public IActionResult Details(int id)
+        public ActionResult Details(int id)
         {
 
             ProjectDetailsViewModel projectDetailsViewModel = new ProjectDetailsViewModel
@@ -45,6 +46,22 @@ namespace Arkitekten.Controllers
             };
 
             return View(projectDetailsViewModel);
+        }
+
+        public IActionResult CreateProject()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateProject(Project project)
+        {
+            if (ModelState.IsValid)
+            {
+                int projectId = _projectRepository.CreateProject(project, User.Identity.Name);
+                return RedirectToAction("Details", new { id = projectId });
+            }
+            return View(project);
         }
     }
 }

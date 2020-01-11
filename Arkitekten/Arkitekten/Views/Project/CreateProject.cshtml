@@ -1,0 +1,34 @@
+﻿@model Project
+
+@{
+    ViewData["Title"] = "Skapa nytt projekt";
+}
+
+
+<h1>Skapa nytt projekt</h1>
+<div class="container">
+    <div class="row pt-3">
+        <div class="col-lg-8">
+
+            <form asp-action="CreateProject" method="post" class="form-horizontal" role="form">
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="ProjectName" class="col-md-2 control-label"></label>
+                    <div class="col-md-5">
+                        <input asp-for="ProjectName" class="form-control" />
+                        <span asp-validation-for="ProjectName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-5">
+                        <input type="submit" class="btn btn-primary" value="Skapa" />
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+

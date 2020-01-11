@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+
 namespace Arkitekten.Models
 {
     public class ProjectRepository : IProjectRepository
@@ -14,6 +16,18 @@ namespace Arkitekten.Models
         {
             _appDbContext = appDbContext;
         }
+
+        public int CreateProject(Project project, string username)
+        {
+            project.ProjectOwnerUserName = username;
+            project.TotalCost = 0;
+
+            _appDbContext.Projects.Add(project);
+
+            _appDbContext.SaveChanges();
+            return project.ProjectId;
+        }
+
         public IEnumerable<Project> GetAllProjectsForThisOwner(string projectOwnerUserName)
         {
             return _appDbContext.Projects.Where(p => p.ProjectOwnerUserName == projectOwnerUserName).Include(o => o.OrderedProduct);
