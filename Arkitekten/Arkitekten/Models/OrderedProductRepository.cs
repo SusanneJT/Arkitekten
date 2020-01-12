@@ -16,11 +16,6 @@ namespace Arkitekten.Models
             _projectRepository = projectRepository;
         }
 
-        public void ChangeOrderedProduct(OrderedProduct orderedProduct)
-        {
-            throw new NotImplementedException();
-        }
-
         public void CreateOrderedProduct(OrderedProduct orderedProduct, int projectId)
         {
             orderedProduct.OrderPlaced = DateTime.Now;
@@ -32,9 +27,26 @@ namespace Arkitekten.Models
             _appDbContext.SaveChanges();
             _projectRepository.UpdateTotalCost(projectId);
         }
-        public IEnumerable<OrderedProduct> GetOrderedProductsById(int projectId)
+
+        public void ChangeOrderedProduct(string amount, decimal price, int orderedProductId)
+        {
+
+            _appDbContext.OrderedProducts.FirstOrDefault(o => o.OrderedProductId == orderedProductId).Amount =  amount;
+            _appDbContext.OrderedProducts.FirstOrDefault(o => o.OrderedProductId == orderedProductId).Price = price;
+            
+            int fetchId = _appDbContext.OrderedProducts.FirstOrDefault(o => o.OrderedProductId == orderedProductId).ProjectId;
+            _appDbContext.SaveChanges();
+            _projectRepository.UpdateTotalCost(fetchId);
+        }
+
+        public IEnumerable<OrderedProduct> GetOrderedProductsByProjectId(int projectId)
         {
             return _appDbContext.OrderedProducts.Where(p => p.ProjectId == projectId);
+        }
+
+        public OrderedProduct GetOrderedProductWithId(int orderedProductId)
+        {
+            return _appDbContext.OrderedProducts.FirstOrDefault(o => o.OrderedProductId == orderedProductId);
         }
     }
 }

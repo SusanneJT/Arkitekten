@@ -8,8 +8,9 @@ namespace Arkitekten.Models
     public interface IOrderedProductRepository
     {
         void CreateOrderedProduct(OrderedProduct orderedProduct, int projectId);
-        void ChangeOrderedProduct(OrderedProduct orderedProduct);
-        public IEnumerable<OrderedProduct> GetOrderedProductsById(int projectId);
+        void ChangeOrderedProduct(String amount, decimal price, int orderedProductId);
+        public IEnumerable<OrderedProduct> GetOrderedProductsByProjectId(int projectId);
+        public OrderedProduct GetOrderedProductWithId(int orderedProductId);
 
     }
 }

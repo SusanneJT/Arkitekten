@@ -41,7 +41,7 @@ namespace Arkitekten.Controllers
             ProjectDetailsViewModel projectDetailsViewModel = new ProjectDetailsViewModel
             {
                 Project = _projectRepository.GetProjectById(id),
-                OrderedProducts = _orderedProductRepository.GetOrderedProductsById(id),
+                OrderedProducts = _orderedProductRepository.GetOrderedProductsByProjectId(id),
                 TestString = id.ToString()
             };
 

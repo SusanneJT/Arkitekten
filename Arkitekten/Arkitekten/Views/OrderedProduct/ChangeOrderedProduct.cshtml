@@ -1,0 +1,40 @@
+﻿@model ChangeOrderViewModel
+
+
+@{
+    ViewData["Title"] = "Ändra beställd produkt";
+}
+
+
+<h1 class="pt-3">Ändra beställd produkt</h1>
+<form asp-action="ChangeOrderedProduct" asp-route-id="@Model.OrderedProduct.OrderedProductId" method="post" class="form-horizontal" role="form">
+   
+    <div class="container pt-3">
+        <div class="card bg-light mb-3" style="max-width: 30rem;">
+            <div class="card-header"><h3>@Model.OrderedProduct.ProductName</h3></div>
+            <div class="card-body">
+                <h6 class="card-text">Typ av produkt: @Model.OrderedProduct.ProductType</h6>
+                <h6 class="card-text">Återförsäljare: @Model.OrderedProduct.Retailer</h6>
+                <p class="card-text">Övriga detaljer: @Model.OrderedProduct.Details</p>
+                
+                <hr />
+                <h6 class="card-text">Mängd: @Model.OrderedProduct.Amount</h6>
+                <label class="control-label">Ny mängd</label>
+                <input value="@Model.OrderedProduct.Amount" class="form-control col-md-8" name="amount"/>
+
+                
+                <hr />
+                <h6 class="card-text">Pris: @Model.OrderedProduct.Price kr</h6>
+                <label class="control-label">Nytt pris</label>
+                <input value=" @Model.OrderedProduct.Price" class="form-control col-md-8" name="price" />
+
+
+                <hr />
+                <div class="col-md-offset-2">
+                    <input type="submit" class="btn btn-primary" value="Ändra" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
