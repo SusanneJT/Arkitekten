@@ -16,11 +16,6 @@ namespace Arkitekten.Models
                 new Project {ProjectId = 3, ProjectOwnerUserName = "Lasse", TotalCost = 19500, ProjectName = "Von Gyllenstiernas badrum"}
             };
 
-        public void CreateProject()
-        {
-            throw new NotImplementedException();
-        }
-
         public int CreateProject(Project project, string username)
         {
             throw new NotImplementedException();
@@ -34,12 +29,6 @@ namespace Arkitekten.Models
         public Project GetProjectById(int projectId)
         {
             return Projects.FirstOrDefault(p => p.ProjectId == projectId);
-        }
-
-        public decimal GetTotalCostForProject(int projectId)
-        {
-            decimal totalcost = Projects.FirstOrDefault(p => p.ProjectId == projectId).TotalCost;
-            return totalcost;
         }
 
         public void UpdateTotalCost(int projectId)

@@ -24,7 +24,7 @@ namespace Arkitekten.Controllers
             _orderedProductRepository = orderedProductRepository;
             
         }
-        // GET: /<controller>/
+
         public ViewResult List()
         {
             ProjectListViewModel projectListViewModel = new ProjectListViewModel
@@ -42,7 +42,6 @@ namespace Arkitekten.Controllers
             {
                 Project = _projectRepository.GetProjectById(id),
                 OrderedProducts = _orderedProductRepository.GetOrderedProductsByProjectId(id),
-                TestString = id.ToString()
             };
 
             return View(projectDetailsViewModel);
