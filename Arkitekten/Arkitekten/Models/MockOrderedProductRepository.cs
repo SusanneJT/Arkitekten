@@ -16,7 +16,8 @@ namespace Arkitekten.Models
                 new OrderedProduct {OrderedProductId = 4, ProjectId = 3, ProductName = "Marmorgolv", Amount = "20 kvm", Price = 8000, ProductType = "Golv", Retailer = "Roffes", Details = "Entrén", OrderPlaced = DateTime.Now},
                 new OrderedProduct {OrderedProductId = 5, ProjectId = 3, ProductName = "Heltäckningsmatta", Amount = "20 kvm", Price = 8000, ProductType = "Golv", Retailer = "Roffes", Details = "Entrén", OrderPlaced = DateTime.Now}
             };
-        public void ChangeOrderedProduct(OrderedProduct orderedProduct)
+
+        public void ChangeOrderedProduct(string amount, decimal price, int orderedProductId)
         {
             throw new NotImplementedException();
         }
@@ -26,9 +27,14 @@ namespace Arkitekten.Models
             throw new NotImplementedException();
         }
 
-        public IEnumerable<OrderedProduct> GetOrderedProductsById(int projectId) 
+        public IEnumerable<OrderedProduct> GetOrderedProductsByProjectId(int projectId) 
         {
             return OrderedProducts.Where(p => p.ProjectId == projectId);
+        }
+
+        public OrderedProduct GetOrderedProductWithId(int orderedProductId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

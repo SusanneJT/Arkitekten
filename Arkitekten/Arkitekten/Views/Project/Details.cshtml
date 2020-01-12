@@ -1,26 +1,26 @@
 ﻿@model ProjectDetailsViewModel
 
     <div>
-        <div class="row">
+        <div class="row p-3">
             <div>
                 <h1>@Model.Project.ProjectName</h1>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-sm-6 col-xs-6 to-details">
+            <div class="col-sm-6 col-xs-6 to-details p-3">
                 <h3>Beställt material</h3>
             </div>
         </div>
 
         <div class="row">
-            <table class="table table-striped">
+            <table class="table table-striped p-3">
                 <thead>
                     <tr>
                         <th scope="col">Order Id</th>
                         <th scope="col">Produktnamn</th>
                         <th scope="col">Produkt typ</th>
-                        <th scope="col">Antal</th>
+                        <th scope="col">Mängd</th>
                         <th scope="col">Återförsäljare</th>
                         <th scope="col">Datum för beställning</th>
                         <th scope="col">Pris</th>
@@ -36,7 +36,11 @@
                             <td>@order.Amount</td>
                             <td>@order.Retailer</td>
                             <td>@order.OrderPlaced</td>
-                            <td>@order.Price</td>
+                            <td>@Convert.ToDecimal(order.Price).ToString("#,##0.00") kr</td>
+                            <td>
+                                <a class="btn btn-secondary" asp-controller="OrderedProduct" asp-action="ChangeOrderedProduct"
+                                   asp-route-id="@order.OrderedProductId">Ändra</a>
+                            </td>
                         </tr>
                     }
                 </tbody>
@@ -48,11 +52,12 @@
                         <th></th>
                         <th></th>
                         <th></th>
-                        <th>Totalpris: @Model.Project.TotalCost</th>
+                        <th>Totalpris: @Convert.ToDecimal(@Model.Project.TotalCost).ToString("#,##0.00") kr</th>
                     </tr>
                 </tfoot>
             </table>
-            <a class="btn btn-primary text-uppercase" asp-controller="OrderedProduct" asp-action="AddOrderedProduct" asp-route-id="@Model.Project.ProjectId">Lägg till beställd produkt</a>
+            <a class="btn btn-primary text-uppercase" asp-controller="OrderedProduct" asp-action="AddOrderedProduct" 
+                asp-route-id="@Model.Project.ProjectId">Lägg till beställd produkt</a>
         </div>
     </div>
 

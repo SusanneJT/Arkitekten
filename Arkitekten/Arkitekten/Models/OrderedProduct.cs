@@ -20,16 +20,16 @@ namespace Arkitekten.Models
         [Display(Name = "Typ av produkt")]
         public string ProductType { get; set; }
 
-        [Required(ErrorMessage = "Pris på varan måste anges")]
         [Display(Name = "Pris")]
+        [Range(1, int.MaxValue, ErrorMessage = "Priset måste vara mer än noll")]
         public decimal Price { get; set; }
 
         [Display(Name = "Övriga detaljer")]
         public string Details { get; set; }
 
         //Amount is set to string to be able to specify desired amount, e.g. 10kg or 10pcs
-        [Required(ErrorMessage = "Du måste ange beställd mängd")]
         [Display(Name = "Mängd")]
+        [Required(ErrorMessage = "Du måste ange beställd mängd")]
         public string Amount { get; set; }
         public DateTime OrderPlaced { get; set; }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Arkitekten.Models;
+using Arkitekten.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,7 +38,32 @@ namespace Arkitekten.Controllers
                 _orderedProductRepository.CreateOrderedProduct(orderedProduct, id);
                 return RedirectToAction("Details", "Project", new { id });
             }
-            return View();
+            //return RedirectToAction("AddOrderedProduct", new { id });
+            ViewBag.ProjectId = id;
+            return View(orderedProduct);
+        }
+
+        public ActionResult ChangeOrderedProduct(int id)
+        {
+            ChangeOrderViewModel changeOrderViewModel = new ChangeOrderViewModel
+            {
+                OrderedProduct = _orderedProductRepository.GetOrderedProductWithId(id)
+            };
+            
+            return View(changeOrderViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult ChangeOrderedProduct(string amount, decimal price, int id)
+        {
+            if (ModelState.IsValid)
+            {
+                _orderedProductRepository.ChangeOrderedProduct(amount, price, id);
+                var projectId = _orderedProductRepository.GetOrderedProductWithId(id).ProjectId;
+                return RedirectToAction("Details", "Project", new { id = projectId });
+            }
+
+            return RedirectToAction("ChangeOrderedProduct", new { id});
         }
     }
 }

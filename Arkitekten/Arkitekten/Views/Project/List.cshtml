@@ -19,7 +19,7 @@
                         <div class="card-body">
                             <h3 class="card-title text-muted text-uppercase text-center">@project.ProjectName</h3>
                             <hr>
-                            <h5 class="pull-right">Totalkostnad: @Convert.ToDecimal(@project.TotalCost).ToString("#,##0.00")kr </h5>
+                            <h5 class="pull-right">Totalkostnad: @Convert.ToDecimal(@project.TotalCost).ToString("#,##0.00") kr </h5>
                             <a class="btn btn-block btn-primary text-uppercase" asp-controller="Project" asp-action="Details" asp-route-id="@project.ProjectId">Hantera projekt </a>
                         </div>
                     </div>
