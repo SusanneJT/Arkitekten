@@ -21,10 +21,9 @@ namespace Arkitekten.Models
             orderedProduct.OrderPlaced = DateTime.Now;
             orderedProduct.ProjectId = projectId;
             
-            
             _appDbContext.OrderedProducts.Add(orderedProduct);
-
             _appDbContext.SaveChanges();
+
             _projectRepository.UpdateTotalCost(projectId);
         }
 
@@ -33,10 +32,9 @@ namespace Arkitekten.Models
 
             _appDbContext.OrderedProducts.FirstOrDefault(o => o.OrderedProductId == orderedProductId).Amount =  amount;
             _appDbContext.OrderedProducts.FirstOrDefault(o => o.OrderedProductId == orderedProductId).Price = price;
-            
-            int fetchId = _appDbContext.OrderedProducts.FirstOrDefault(o => o.OrderedProductId == orderedProductId).ProjectId;
+
             _appDbContext.SaveChanges();
-            _projectRepository.UpdateTotalCost(fetchId);
+            _projectRepository.UpdateTotalCost(_appDbContext.OrderedProducts.FirstOrDefault(o => o.OrderedProductId == orderedProductId).ProjectId);
         }
 
         public IEnumerable<OrderedProduct> GetOrderedProductsByProjectId(int projectId)

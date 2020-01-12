@@ -35,7 +35,7 @@ namespace Arkitekten.Models
 
         public Project GetProjectById(int projectId)
         {
-            return _appDbContext.Projects.Include(o => o.OrderedProduct).FirstOrDefault(p => p.ProjectId == projectId);
+            return _appDbContext.Projects.FirstOrDefault(p => p.ProjectId == projectId);
         }
 
         public void UpdateTotalCost(int projectId)

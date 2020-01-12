@@ -27,7 +27,7 @@ namespace Arkitekten.Models
             throw new NotImplementedException();
         }
 
-        public IEnumerable<OrderedProduct> GetOrderedProductsByProjectId(int projectId) 
+        public IEnumerable<OrderedProduct> GetOrderedProductsByProjectId(int projectId)
         {
             return OrderedProducts.Where(p => p.ProjectId == projectId);
         }

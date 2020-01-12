@@ -23,7 +23,7 @@ namespace Arkitekten.Controllers
             _orderedProductRepository = orderedProductRepository;
 
         }
-        // GET: /<controller>/
+
         public ActionResult AddOrderedProduct(int id)
         {
             ViewBag.ProjectId = id;

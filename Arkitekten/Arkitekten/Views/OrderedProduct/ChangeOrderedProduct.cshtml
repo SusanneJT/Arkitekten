@@ -24,10 +24,9 @@
 
                 
                 <hr />
-                <h6 class="card-text">Pris: @Model.OrderedProduct.Price kr</h6>
+                <h6 class="card-text">Pris: @Convert.ToDecimal(@Model.OrderedProduct.Price).ToString("#,##0.00") kr</h6>
                 <label class="control-label">Nytt pris</label>
-                <input value=" @Model.OrderedProduct.Price" class="form-control col-md-8" name="price" />
-
+                <input value="@Convert.ToDecimal(@Model.OrderedProduct.Price).ToString("#,##0.00")" class="form-control col-md-8" name="price" />
 
                 <hr />
                 <div class="col-md-offset-2">

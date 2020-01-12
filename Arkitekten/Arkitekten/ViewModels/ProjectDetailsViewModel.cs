@@ -10,6 +10,5 @@ namespace Arkitekten.ViewModels
     {
         public Project Project { get; set; }
         public IEnumerable<OrderedProduct> OrderedProducts { get; set; }
-        public string TestString { get; set; }
     }
 }

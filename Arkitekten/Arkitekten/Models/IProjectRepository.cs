@@ -10,7 +10,6 @@ namespace Arkitekten.Models
         IEnumerable<Project> GetAllProjectsForThisOwner(string projectOwnerUserName);
         Project GetProjectById(int projectId);
         int CreateProject(Project project, string username);
-
         void UpdateTotalCost(int projectId);
     }
 }
