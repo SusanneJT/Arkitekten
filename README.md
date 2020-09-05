@@ -2,6 +2,7 @@
 Inlämningsuppgift för kursen Dynamiska Webbsystem 1
 
 
+## Meddelande från Arkitektbyrån Ballong AB 🎈
 > Hej! Vad kul att du har accepterat uppdraget, vi är i behov av att förenkla vår materialbeställningsprocess. Vi står för utformningen, d.v.s. designen av våra byggnader och även inredningen - vilket betyder att våra projektledare behöver beställa in en hel del material, detta är oftast golv, marmor och olika färger.
 > I dag så gör alla våra projektledare lite olika - vilket gör det svårt för vår ekonomiavdelning att ha koll på hur mycket ett hus kommer kosta i slutändan för kunden. Detta leder ibland till missförstånd och förlorande intäkter, därför vill vi förbättra detta! Vi har sneglat lite på [Bolon i Ulricehamn](https://www.google.com/search?client=safari&rls=en&sxsrf=ACYBGNSX0LqlJjYb3I7vxLeQuQU1fsN8Gw%3A1574085016703&ei=mKHSXcLHKqz3qwGr3qmABQ&q=bolon+ulricehamn&oq=bolon+ulr&gs_l=psy-ab.3.0.0l2j0i8i30l6j38.2560.5156..6169...0.2..0.105.517.5j1......0....1..gws-wiz.......0i71j0i67j0i203j33i160.9OLgLvndooA), som har ett liknande tänk.
 > 
@@ -13,3 +14,10 @@ Inlämningsuppgift för kursen Dynamiska Webbsystem 1
 > 
 > Mvh
 > Ballong AB
+
+
+### Krav på den tekniska lösningen:
+* Din lösning, programmet, ska vara byggt i ASP.NETCore, version 3.0 eller 3.1.
+* I programmet ska det vara möjligt att spara information i en databas, genom Entity Framework Core.
+* Det ska vara möjligt att logga in och ut i programmet - förslagsvis genom ASP.NET Core Identity.
+* Programmet ska i högsta möjliga mål avstämma kraven som du identifierat och redogjort för i din rapport.
